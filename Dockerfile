@@ -11,7 +11,7 @@ COPY docker-entrypoint.sh /
 RUN yum install -y ca-certificates \
 	&& wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/1.2/gosu-amd64" \
 	&& chmod +x /usr/local/bin/gosu \
-	&& RUN groupadd -r logstash && useradd -r -g logstash logstash \
+	&& groupadd -r logstash && useradd -r -g logstash logstash \
 	&& ln -s /opt/logstash-${LOGSTASH_VERSION} /opt/logstash \
 	&& chmod +x /docker-entrypoint.sh
 
